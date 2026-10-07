@@ -7,6 +7,7 @@ export default defineConfig({
     configurePreviewServer(server) {
       server.middlewares.use(async (req,res,next) => {
         const routes = { '/menu':'menu', '/menu/':'menu', '/contact':'contact', '/contact/':'contact' };
+        for(const legal of ['privacy-policy','terms-of-service','accessibility-statement']) { routes[`/${legal}`]=legal; routes[`/${legal}/`]=legal; }
         const base = (process.env.SITE_BASE_PATH || '/').replace(/\/$/,'');
         const requestPath = req.url?.split('?')[0];
         const page = routes[base && requestPath?.startsWith(base) ? requestPath.slice(base.length) : requestPath];

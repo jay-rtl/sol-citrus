@@ -8,7 +8,7 @@ test('All authored image files and responsive variants exist', () => {
   const assets = [...content.matchAll(/(?:src="|srcset="|, )(\/assets\/[^" ,]+)/g)].map(m=>m[1]);
   for (const path of assets) assert.ok(existsSync(`public${path}`), path);
 });
-test('Live business content and booking form are preserved', () => {
+test('Live business content is preserved and booking stays on the new site', () => {
   assert.equal(experiences.length,4);
   assert.equal(menu.map(x=>x.items.length).reduce((a,b)=>a+b),10);
   assert.match(contactPage(), /\$150/);
@@ -16,7 +16,9 @@ test('Live business content and booking form are preserved', () => {
   assert.match(contactPage(), /Hallandale Beach/);
   assert.match(contactPage(), /approximately 40 miles/);
   assert.match(contactPage(), new RegExp(business.email.replaceAll('.', '\\.')));
-  assert.ok(contactPage().includes(business.inquiry));
+  assert.match(contactPage(), /id="booking-form"/);
+  assert.match(contactPage(), /Prepare email inquiry/);
+  assert.ok(!contactPage().includes('https://www.sol-and-citrus.com'));
 });
 test('Production pages include crawlable content and page-specific metadata', () => {
   for (const path of ['', 'menu/', 'contact/']) {

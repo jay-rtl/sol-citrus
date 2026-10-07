@@ -3,7 +3,7 @@ export const business = {
   instagram: 'https://www.instagram.com/solandcitrus.miami/',
   tiktok: 'https://www.tiktok.com/@sol.citrus.miami',
   facebook: 'https://www.facebook.com/share/1b9XhLz2jw/?mibextid=wwXIfr',
-  inquiry: 'https://www.sol-and-citrus.com/contact#form-d2ffcc6c-fbca-417d-af18-c8a45f6f23e6'
+  inquiry: '/contact#inquiry'
 };
 export const experiences = [
   { title: 'Art brunches & creative events', image: 'story.webp', alt: 'Sol & Citrus beverage experience at a creative gathering', text: 'Art brunches, painting experiences, creative workshops and social gatherings paired with handcrafted beverages.' },
