@@ -33,7 +33,7 @@ Preserved: original raster logo, original photography, four experience categorie
 
 The original inquiry is a Wix-managed form (`d2ffcc6c-fbca-417d-af18-c8a45f6f23e6`). The upgraded contact page links directly to that original form and retains phone/email contact. Submission, validation, delivery, and success handling remain with the original form. No fake submission or success message was introduced. Replacing the inline Wix form requires its supported integration or account/source access.
 
-Privacy Policy, Terms of Service, and Accessibility Statement retain their original live destinations. Before replacing the original domain's hosting, migrate those pages and integrate a supported booking endpoint: the contact form handoff currently depends on the original Wix page remaining reachable. No live deployment was performed.
+Privacy Policy, Terms of Service, and Accessibility Statement retain their original live destinations. Before replacing the original domain's hosting, migrate those pages and integrate a supported booking endpoint: the contact form handoff currently depends on the original Wix page remaining reachable. The separate GitHub Pages deployment leaves the original Wix site available.
 
 ## Validation
 

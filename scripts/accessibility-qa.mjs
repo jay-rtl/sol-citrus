@@ -5,7 +5,7 @@ const browser = await chromium.launch({ channel:'chrome', headless:true, args:['
 const context = await browser.newContext({ reducedMotion:'reduce' });
 const page = await context.newPage();
 const report = [];
-const base = process.env.QA_URL || 'http://127.0.0.1:5173';
+const base = (process.env.QA_URL || 'http://127.0.0.1:5173').replace(/\/$/,'');
 for (const width of [390,1440]) {
   await page.setViewportSize({width,height:900});
   for (const path of ['/', '/menu', '/contact']) {
@@ -16,7 +16,7 @@ for (const width of [390,1440]) {
   }
 }
 await page.setViewportSize({width:390,height:844});
-await page.goto(base);
+await page.goto(`${base}/`);
 await page.getByRole('button',{name:'Open navigation'}).click();
 const menu = await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();
 report.push({width:390,path:'mobile-menu',violations:menu.violations});
